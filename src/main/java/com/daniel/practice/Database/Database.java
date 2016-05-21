@@ -1,4 +1,4 @@
-package com.daniel.practice.Database;
+package com.daniel.practice.database;
 
 import com.daniel.practice.model.Message;
 import com.daniel.practice.model.Profile;
