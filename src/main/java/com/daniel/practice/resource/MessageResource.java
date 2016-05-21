@@ -5,13 +5,12 @@ import com.daniel.practice.service.MessageService;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
+import java.util.Map;
 
-/**
- * Created by Danielm8686 on 5/19/2016.
- */
         @Path("/messages")
         public class MessageResource {
 
@@ -19,8 +18,16 @@ import java.util.List;
 
         @GET
         @Produces(MediaType.APPLICATION_XML)
-        public List<Message> getMessages() {
+        public Map<Long, Message> getMessages() {
             return messageService.getAllMessages();
         }
         //System.out.println("Hello");
+
+        @GET
+        @Path("/{messageId}")
+        @Produces(MediaType.APPLICATION_XML)
+        public Message getMessage(@PathParam("messageId") Long id){
+                return messageService.getMessage(id);
+        }
+
 }

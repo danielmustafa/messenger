@@ -1,23 +1,39 @@
 package com.daniel.practice.service;
 
+import com.daniel.practice.Database.Database;
 import com.daniel.practice.model.Message;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
-/**
- * Created by Danielm8686 on 5/19/2016.
- */
+
 public class MessageService {
 
-    public List<Message> getAllMessages(){
-        List<Message> list = new ArrayList<>();
-        Message m1 = new Message(1L,"Hello world","Daniel");
-        Message m2 = new Message(2L,"Hello jersey","Daniel");
-        list.add(m1);
-        list.add(m2);
+    private Map<Long,Message> messages = new Database().getMessages();
 
-        return list;
+    public Map<Long,Message> getAllMessages(){
+
+        return messages;
 
     }
+
+    public Message getMessage(Long id){
+
+        return messages.get(id);
+
+    }
+
+    public void updateMessage(Long id,Message message){
+        if (messages.get(id) != null) {
+            messages.put(id, message);
+        }
+    }
+
+    public void deleteMessage(Long id){
+
+        messages.remove(id);
+
+    }
+
 }
