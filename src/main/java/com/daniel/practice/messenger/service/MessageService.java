@@ -12,15 +12,22 @@ import java.util.Map;
 
 public class MessageService {
 
-    private Map<Long,Message> messages = Database.getMessages();
+//    private Map<Long,Message> messages = Database.getMessages();
 
 
-    public MessageService(){
+    public MessageService() {
 
-        messages.put(1L, new Message(1L,"Daniel","hello world"));
-        messages.put(2L, new Message(2L,"Daniel","hello world"));
+//        messages.put(1L, new Message(1L,"Daniel","hello world"));
+//        messages.put(2L, new Message(2L,"Daniel","hello world"));
 
     }
+
+
+    public List<Message> getAllMessages() {
+        return Database.getMessages();
+    }
+
+/*
 
     public Message addMessage(Message message){
 
@@ -30,11 +37,6 @@ public class MessageService {
         return message;
 
     }
-
-    public List<Message> getAllMessages() {
-        return new ArrayList<Message>(messages.values());
-    }
-
     public Message getMessage(Long id){
 
         return messages.get(id);
@@ -54,6 +56,7 @@ public class MessageService {
         messages.remove(id);
 
     }
-
+*/
 
 }
+
