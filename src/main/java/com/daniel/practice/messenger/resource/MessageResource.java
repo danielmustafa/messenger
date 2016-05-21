@@ -24,6 +24,7 @@ public class MessageResource {
 
     @GET
     @Path("/wtf")
+    @Produces(MediaType.APPLICATION_XML)
     public String wtf(){
         return "WHAT THE FUCK";
     }
