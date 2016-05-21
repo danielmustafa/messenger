@@ -11,8 +11,10 @@ import javax.ws.rs.core.MediaType;
 import java.util.List;
 import java.util.Map;
 
-        @Path("/messages")
-        public class MessageResource {
+
+
+@Path("/messages")
+public class MessageResource {
 
         MessageService messageService = new MessageService();
 
@@ -20,7 +22,7 @@ import java.util.Map;
         @Produces(MediaType.APPLICATION_XML)
         public Map<Long, Message> getMessages() {
             return messageService.getAllMessages();
-        }*/
+        }
         //System.out.println("Hello");
 
         @GET
@@ -28,6 +30,6 @@ import java.util.Map;
         @Produces(MediaType.APPLICATION_XML)
         public Message getMessage(@PathParam("messageId") Long id){
                 return messageService.getMessage(id);
-        }
+        }*/
 
 }
