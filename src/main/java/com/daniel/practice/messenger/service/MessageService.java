@@ -14,6 +14,7 @@ public class MessageService {
 
     private Map<Long,Message> messages = Database.getMessages();
 
+
     public MessageService(){
 
         messages.put(1L, new Message(1L,"Daniel","hello world"));
@@ -30,11 +31,8 @@ public class MessageService {
 
     }
 
-    public List<Message> getAllMessages(){
-
+    public List<Message> getAllMessages() {
         return new ArrayList<Message>(messages.values());
-
-
     }
 
     public Message getMessage(Long id){
