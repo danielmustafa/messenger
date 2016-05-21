@@ -32,7 +32,8 @@ public class MessageService {
 
     public List<Message> getAllMessages(){
 
-        return new ArrayList<>(messages.values());
+        return new ArrayList<Message>(messages.values());
+
 
     }
 
@@ -55,5 +56,6 @@ public class MessageService {
         messages.remove(id);
 
     }
+
 
 }
