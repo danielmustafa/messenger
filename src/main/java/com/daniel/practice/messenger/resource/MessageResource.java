@@ -7,6 +7,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -18,8 +19,12 @@ public class MessageResource {
     @GET
     @Produces(MediaType.APPLICATION_XML)
     public List<Message> getAllMessages(){
+        List<Message> messages = new ArrayList<>();
+        messages.add(new Message(1L,"test 1","daniel"));
+        messages.add(new Message(2L,"test 2","daniel"));
 
-        return messageService.getAllMessages();
+        return messages;
+        //return messageService.getAllMessages();
 
     }
 
