@@ -22,6 +22,11 @@ public class MessageResource {
         return messageService.getAllMessages();
     }
 
+    @GET
+    @Path("/wtf")
+    public String wtf(){
+        return "WHAT THE FUCK";
+    }
 
 
 }
