@@ -19,12 +19,8 @@ public class MessageResource {
     @GET
     @Produces(MediaType.APPLICATION_XML)
     public List<Message> getAllMessages(){
-        List<Message> messages = new ArrayList<>();
-        messages.add(new Message(1L,"test 1","daniel"));
-        messages.add(new Message(2L,"test 2","daniel"));
 
-        return messages;
-        //return messageService.getAllMessages();
+        return messageService.getAllMessages();
 
     }
 
