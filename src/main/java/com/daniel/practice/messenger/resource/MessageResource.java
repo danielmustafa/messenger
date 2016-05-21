@@ -1,16 +1,13 @@
-package com.daniel.practice.resource;
+package com.daniel.practice.messenger.resource;
 
-import com.daniel.practice.model.Message;
-import com.daniel.practice.service.MessageService;
+import com.daniel.practice.messenger.service.MessageService;
+import com.daniel.practice.messenger.model.Message;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-
 
 
 @Path("/messages")

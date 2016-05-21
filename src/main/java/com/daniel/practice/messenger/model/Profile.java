@@ -1,4 +1,4 @@
-package com.daniel.practice.model;
+package com.daniel.practice.messenger.model;
 
 import java.util.Date;
 

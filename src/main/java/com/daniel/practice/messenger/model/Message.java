@@ -1,10 +1,8 @@
-package com.daniel.practice.model;
+package com.daniel.practice.messenger.model;
 
 import java.util.Date;
 
-/**
- * Created by Danielm8686 on 5/19/2016.
- */
+
 public class Message {
 
     String author;

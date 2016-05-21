@@ -1,7 +1,7 @@
-package com.daniel.practice.database;
+package com.daniel.practice.messenger.database;
 
-import com.daniel.practice.model.Message;
-import com.daniel.practice.model.Profile;
+import com.daniel.practice.messenger.model.Message;
+import com.daniel.practice.messenger.model.Profile;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,11 +11,7 @@ public class Database {
     private static Map<Long,Message> messages = new HashMap<>();
     private static Map<Long,Profile> profiles = new HashMap<>();
 
-    public Database(){
 
-        
-
-    }
 
     public Map<Long,Message> getMessages(){
 

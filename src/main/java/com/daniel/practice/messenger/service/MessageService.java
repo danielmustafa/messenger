@@ -1,10 +1,10 @@
-package com.daniel.practice.service;
+package com.daniel.practice.messenger.service;
 
-//import com.daniel.practice.database.Database;
+//import Database;
 
 
-import com.daniel.practice.database.Database;
-import com.daniel.practice.model.Message;
+import com.daniel.practice.messenger.database.Database;
+import com.daniel.practice.messenger.model.Message;
 
 import java.util.ArrayList;
 import java.util.List;
