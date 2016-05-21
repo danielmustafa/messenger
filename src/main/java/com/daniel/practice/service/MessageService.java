@@ -3,13 +3,20 @@ package com.daniel.practice.service;
 //import com.daniel.practice.database.Database;
 
 
+import com.daniel.practice.database.Database;
+import com.daniel.practice.model.Message;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 public class MessageService {
-/*
+
     private Map<Long,Message> messages = new Database().getMessages();
 
-    public Map<Long,Message> getAllMessages(){
+    public List<Message> getAllMessages(){
 
-        return messages;
+        return new ArrayList<>(messages.values());
 
     }
 
@@ -19,10 +26,12 @@ public class MessageService {
 
     }
 
-    public void updateMessage(Long id,Message message){
-        if (messages.get(id) != null) {
-            messages.put(id, message);
+    public Message updateMessage(Long id,Message message){
+        if (messages.get(id) == null) {
+            return null;
         }
+        messages.put(id, message);
+        return message;
     }
 
     public void deleteMessage(Long id){
@@ -30,5 +39,5 @@ public class MessageService {
         messages.remove(id);
 
     }
-*/
+
 }

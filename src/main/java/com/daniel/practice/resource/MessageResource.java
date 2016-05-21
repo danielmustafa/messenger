@@ -7,6 +7,8 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 
@@ -18,7 +20,7 @@ public class MessageResource {
 
     @GET
     @Produces(MediaType.APPLICATION_XML)
-    public Map<Long,Message> getAllMessages(){
+    public List<Message> getAllMessages(){
 
         return messageService.getAllMessages();
 
