@@ -11,6 +11,12 @@ public class Database {
     private static Map<Long,Message> messages = new HashMap<>();
     private static Map<Long,Profile> profiles = new HashMap<>();
 
+    public Database(){
+
+        
+
+    }
+
     public Map<Long,Message> getMessages(){
 
         return messages;
