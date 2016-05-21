@@ -1,14 +1,10 @@
 package com.daniel.practice.service;
 
 //import com.daniel.practice.database.Database;
-import com.daniel.practice.database.Database;
-import com.daniel.practice.model.Message;
-
-import java.util.Map;
 
 
 public class MessageService {
-
+/*
     private Map<Long,Message> messages = new Database().getMessages();
 
     public Map<Long,Message> getAllMessages(){
@@ -34,5 +30,5 @@ public class MessageService {
         messages.remove(id);
 
     }
-
+*/
 }
