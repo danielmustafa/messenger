@@ -16,11 +16,11 @@ import java.util.Map;
 
         MessageService messageService = new MessageService();
 
-        @GET
+/*        @GET
         @Produces(MediaType.APPLICATION_XML)
         public Map<Long, Message> getMessages() {
             return messageService.getAllMessages();
-        }
+        }*/
         //System.out.println("Hello");
 
         @GET
