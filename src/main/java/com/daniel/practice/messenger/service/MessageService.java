@@ -12,7 +12,7 @@ import java.util.Map;
 
 public class MessageService {
 
-    private Map<Long,Message> messages = new Database().getMessages();
+    private Map<Long,Message> messages = Database.getMessages();
 
     public MessageService(){
 

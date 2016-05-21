@@ -16,19 +16,12 @@ public class MessageResource {
     MessageService messageService = new MessageService();
 
     @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    public String test(){
-
-        return "Hello test";
-    }
-
-/*  @GET
     @Produces(MediaType.APPLICATION_XML)
     public List<Message> getAllMessages(){
 
         return messageService.getAllMessages();
 
-    }*/
+    }
 
 
 

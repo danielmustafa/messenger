@@ -13,13 +13,13 @@ public class Database {
 
 
 
-    public Map<Long,Message> getMessages(){
+    public static Map<Long,Message> getMessages(){
 
         return messages;
 
     }
 
-    public Map<Long,Profile> getProfiles(){
+    public static Map<Long,Profile> getProfiles(){
 
         return profiles;
     }
