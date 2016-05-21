@@ -5,55 +5,45 @@ import java.util.Date;
 
 public class Message {
 
-    String author;
-    String message;
-    Date createDate;
-    Long id;
+    private long id;
+    private String message;
+    private Date created;
+    private String author;
 
-    public Message(){
+    public Message() {
 
     }
 
-    public Message(Long id, String author, String message){
-
+    public Message(long id, String message, String author) {
         this.id = id;
-        this.author = author;
         this.message = message;
-        this.createDate = new Date();
-
-
+        this.author = author;
+        this.created = new Date();
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
-
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
     public String getMessage() {
         return message;
     }
-
     public void setMessage(String message) {
         this.message = message;
     }
-
-    public Date getCreateDate() {
-        return createDate;
+    public Date getCreated() {
+        return created;
     }
-
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
+    public void setCreated(Date created) {
+        this.created = created;
+    }
+    public String getAuthor() {
+        return author;
+    }
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
 
