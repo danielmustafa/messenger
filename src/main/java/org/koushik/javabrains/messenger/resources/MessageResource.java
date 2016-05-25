@@ -62,9 +62,10 @@ public class MessageResource {
 
 	@GET
 	@Path("/context")
-	public String getContextInfo(@Context UriInfo uriInfo){
+	@Produces(MediaType.APPLICATION_JSON)
+	public Map getContextInfo(@Context UriInfo uriInfo){
 
-		String path = "test";
+		Map path = uriInfo.getPathParameters();
 
 		return path;
 	}
