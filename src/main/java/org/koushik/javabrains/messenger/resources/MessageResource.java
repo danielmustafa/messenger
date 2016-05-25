@@ -62,9 +62,9 @@ public class MessageResource {
 
 	@GET
 	@Path("/context")
-	public Map getContextInfo(@Context UriInfo uriInfo){
+	public String getContextInfo(@Context UriInfo uriInfo){
 
-		Map path = uriInfo.getPathParameters();
+		String path = "test";
 
 		return path;
 	}
