@@ -1,9 +1,12 @@
 package org.koushik.javabrains.messenger.resources;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.ws.rs.*;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.UriInfo;
 
 import org.koushik.javabrains.messenger.model.Message;
 import org.koushik.javabrains.messenger.service.MessageService;
@@ -56,6 +59,15 @@ public class MessageResource {
 		return messageService.getMessage(id);
 	}
 
+
+	@GET
+	@Path("/context")
+	public Map getContextInfo(@Context UriInfo uriInfo){
+
+		Map path = uriInfo.getPathParameters();
+
+		return path;
+	}
 
 
 }
