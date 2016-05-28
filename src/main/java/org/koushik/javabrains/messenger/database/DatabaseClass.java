@@ -3,7 +3,9 @@ package org.koushik.javabrains.messenger.database;
 import java.util.HashMap;
 import java.util.Map;
 
+
 import com.mongodb.MongoClient;
+import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.koushik.javabrains.messenger.model.Message;
 import org.koushik.javabrains.messenger.model.Profile;
@@ -22,11 +24,17 @@ public class DatabaseClass {
 		return profiles;
 	}
 
-	MongoClient mongoClient = new MongoClient("localhost");
+	private MongoClient mongoClient = new MongoClient("localhost");
 
-	public MongoDatabase getMongoDatabase(String dbName){
 
-		return mongoClient.getDatabase(dbName);
+	public MongoCollection getMongoCollection(String dbName, String collectionName){
+
+		MongoDatabase mdb = mongoClient.getDatabase(dbName);
+
+		return mdb.getCollection(collectionName);
+
+
+
 
 	}
 

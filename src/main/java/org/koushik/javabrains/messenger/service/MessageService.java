@@ -11,11 +11,17 @@ import org.koushik.javabrains.messenger.model.Message;
 
 public class MessageService {
 
+    private DatabaseClass dc = new DatabaseClass();
 	private Map<Long, Message> messages = DatabaseClass.getMessages();
-	private MongoDatabase database = new DatabaseClass().getMongoDatabase("messenger");
-	private MongoCollection<Document> messageCollection = database.getCollection("messages");
+	private MongoCollection<Document> messageCollection;
 	
 	public MessageService() {
+        try {
+            messageCollection = dc.getMongoCollection("messenger", "messages");
+        }
+        finally{
+
+        }
 		/*messages.put(1L, new Message(1, "Hello World", "daniel"));
 		messages.put(2L, new Message(2, "Hello Jersey", "daniel2"));*/
 		//messageCollection.insertOne(new Message(1,"Hello World","Daniel").toDoc());
