@@ -1,8 +1,6 @@
 package org.koushik.javabrains.messenger.resources;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
@@ -21,13 +19,14 @@ public class MessageResource {
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<String> getMessages() {
-		List<String> list = new ArrayList<>();
-		//return messageService.getAllMessages();
-		list.add("this");
-		list.add("is");
-		list.add("a");
-		list.add("test");
+	public Collection<String> getMessages() {
+		Map<Long,String> stuff = new HashMap<>();
+
+		stuff.put(1L,"test");
+		stuff.put(2L,"test 2");
+		Collection<String> list = stuff.values();
+
+
 		return list;
 	}
 
