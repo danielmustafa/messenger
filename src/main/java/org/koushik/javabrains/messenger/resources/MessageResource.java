@@ -16,18 +16,24 @@ import org.koushik.javabrains.messenger.service.MessageService;
 public class MessageResource {
 
 	MessageService messageService = new MessageService();
-	
+
+/*	@GET
+	@Produces(MediaType.APPLICATION_XML)
+	public List<Message> getMessages() {
+		return messageService.getAllMessages();
+	}*/
+
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public Collection<String> getMessages() {
-		Map<Long,String> stuff = new HashMap<>();
-
-		stuff.put(1L,"test");
-		stuff.put(2L,"test 2");
-		Collection<String> list = stuff.values();
-
-
+	public List<Message> getMessages() {
+		List<Message> list = new ArrayList<>();
+		Message m1 = new Message(1L,"daniel","test");
+		Message m2 = new Message(2L,"daniel2","test2");
+		list.add(m1);
+		list.add(m2);
 		return list;
+
+		//return messageService.getAllMessages();
 	}
 
 	@POST
