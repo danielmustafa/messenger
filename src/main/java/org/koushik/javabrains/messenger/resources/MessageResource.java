@@ -21,12 +21,10 @@ public class MessageResource {
 	
 	@GET
 	@Produces(MediaType.TEXT_PLAIN)
-	public List<String> getMessages() {
-		List<String> list = new ArrayList<>();
-		list.add("test");
-		list.add("test2");
+	public String getMessages() {
+
 		//return messageService.getAllMessages();
-		return list;
+		return "test";
 	}
 
 	@POST
