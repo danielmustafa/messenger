@@ -20,7 +20,7 @@ public class MessageResource {
 	MessageService messageService = new MessageService();
 	
 	@GET
-	@Produces(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.TEXT_PLAIN)
 	public List<String> getMessages() {
 		List<String> list = new ArrayList<>();
 		list.add("test");
