@@ -22,7 +22,11 @@ public class MessageResource {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<String> getMessages() {
-		return messageService.getAllMessages();
+		List<String> list = new ArrayList<>();
+		list.add("test");
+		list.add("test2");
+		//return messageService.getAllMessages();
+		return list;
 	}
 
 	@POST
