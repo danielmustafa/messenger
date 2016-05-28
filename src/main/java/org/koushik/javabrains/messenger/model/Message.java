@@ -1,34 +1,43 @@
 package org.koushik.javabrains.messenger.model;
 
 import org.bson.Document;
+import org.bson.types.ObjectId;
+import org.mongodb.morphia.annotations.Entity;
+import org.mongodb.morphia.annotations.Id;
+import org.mongodb.morphia.annotations.PostLoad;
+import org.mongodb.morphia.annotations.Property;
 
 import java.util.Date;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
+@Entity("messages")
 public class Message {
 
-	private long id;
+	@Id
+	private ObjectId id;
     private String message;
-    private Date created;
-    private String author;
+    @Property
+	private Date created;
+    @Property
+	private String author;
     
     public Message() {
     	
     }
     
-    public Message(long id, String message, String author) {
+    public Message(ObjectId id, String message, String author) {
     	this.id = id;
     	this.message = message;
     	this.author = author;
     	this.created = new Date();
     }
     
-	public long getId() {
+	public ObjectId getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(ObjectId id) {
 		this.id = id;
 	}
 	public String getMessage() {

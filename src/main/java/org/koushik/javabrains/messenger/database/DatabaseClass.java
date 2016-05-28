@@ -7,16 +7,25 @@ import java.util.Map;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import org.bson.types.ObjectId;
 import org.koushik.javabrains.messenger.model.Message;
 import org.koushik.javabrains.messenger.model.Profile;
+import org.mongodb.morphia.Datastore;
+import org.mongodb.morphia.Morphia;
 
 public class DatabaseClass {
 
-	private static Map<Long, Message> messages = new HashMap<>();
+	private final Morphia morphia = new Morphia();
+
+	public DatabaseClass(){
+	morphia.mapPackage("org.koushik.javabrains.messenger.model");
+
+	}
+	private static Map<ObjectId, Message> messages = new HashMap<>();
 	private static Map<Long, Profile> profiles = new HashMap<>();
 
 	
-	public static Map<Long, Message> getMessages() {
+	public static Map<ObjectId, Message> getMessages() {
 		return messages;
 	}
 	
@@ -27,6 +36,7 @@ public class DatabaseClass {
 	private MongoClient mongoClient = new MongoClient("localhost");
 
 
+
 	public MongoCollection getMongoCollection(String dbName, String collectionName){
 
 		MongoDatabase mdb = mongoClient.getDatabase(dbName);
@@ -34,10 +44,14 @@ public class DatabaseClass {
 		return mdb.getCollection(collectionName);
 
 
+	}
+
+	public Datastore getDatastore(String dbName){
+
+		return morphia.createDatastore(new MongoClient("localhost"),dbName);
 
 
 	}
-
 	
 	
 }
