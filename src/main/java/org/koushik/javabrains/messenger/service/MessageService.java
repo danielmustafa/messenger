@@ -30,14 +30,14 @@ public class MessageService {
 	}
 	
 	
-	public List<Document> getAllMessages() {
+	public List<String> getAllMessages() {
 		//return new ArrayList<Message>(messages.values());
-        List<Document> messageList = new ArrayList<>();
+        List<String> messageList = new ArrayList<>();
         MongoCursor<Document> cursor = messageCollection.find().iterator();
 
         try{
             while(cursor.hasNext()){
-                messageList.add(cursor.next());
+                messageList.add(cursor.next().toJson());
             }
         } finally {
             cursor.close();
