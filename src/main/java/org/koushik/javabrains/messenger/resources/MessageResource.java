@@ -20,11 +20,15 @@ public class MessageResource {
 	MessageService messageService = new MessageService();
 	
 	@GET
-	@Produces(MediaType.TEXT_PLAIN)
-	public String getMessages() {
-
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<String> getMessages() {
+		List<String> list = new ArrayList<>();
 		//return messageService.getAllMessages();
-		return "test";
+		list.add("this");
+		list.add("is");
+		list.add("a");
+		list.add("test");
+		return list;
 	}
 
 	@POST
