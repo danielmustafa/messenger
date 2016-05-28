@@ -1,11 +1,13 @@
 package org.koushik.javabrains.messenger.resources;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.UriInfo;
 
 import org.koushik.javabrains.messenger.model.Message;
@@ -65,7 +67,10 @@ public class MessageResource {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Map getContextInfo(@Context UriInfo uriInfo){
 
-		Map path = uriInfo.getPathParameters();
+		MultivaluedMap path = uriInfo.getPathParameters();
+
+
+
 
 		return path;
 	}

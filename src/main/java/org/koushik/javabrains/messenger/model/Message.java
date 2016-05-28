@@ -1,5 +1,7 @@
 package org.koushik.javabrains.messenger.model;
 
+import org.bson.Document;
+
 import java.util.Date;
 
 import javax.xml.bind.annotation.XmlRootElement;
@@ -46,6 +48,16 @@ public class Message {
 	}
 	public void setAuthor(String author) {
 		this.author = author;
+	}
+
+	public Document toDoc(){
+		Document doc = new Document("id",this.getId()).append("message",this.getMessage())
+				.append("author",this.getAuthor()).append("created",this.getCreated());
+
+		return doc;
+
+
+
 	}
 	
 }

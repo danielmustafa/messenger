@@ -1,20 +1,25 @@
 package org.koushik.javabrains.messenger.service;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
+import org.bson.Document;
 import org.koushik.javabrains.messenger.database.DatabaseClass;
 import org.koushik.javabrains.messenger.model.Message;
 
 public class MessageService {
 
 	private Map<Long, Message> messages = DatabaseClass.getMessages();
+	private MongoDatabase database = new DatabaseClass().getMongoDatabase("messenger");
+	private MongoCollection<Document> messageCollection = database.getCollection("messages");
 	
 	public MessageService() {
-		messages.put(1L, new Message(1, "Hello World", "daniel"));
-		messages.put(2L, new Message(2, "Hello Jersey", "daniel2"));
+		/*messages.put(1L, new Message(1, "Hello World", "daniel"));
+		messages.put(2L, new Message(2, "Hello Jersey", "daniel2"));*/
+		messageCollection.insertOne(new Message(1,"Hello World","Daniel").toDoc());
+
+
 	}
 	
 	
