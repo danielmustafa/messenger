@@ -10,6 +10,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.UriInfo;
 
+import org.bson.Document;
 import org.koushik.javabrains.messenger.model.Message;
 import org.koushik.javabrains.messenger.service.MessageService;
 
@@ -20,7 +21,7 @@ public class MessageResource {
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Message> getMessages() {
+	public List<Document> getMessages() {
 		return messageService.getAllMessages();
 	}
 
@@ -62,18 +63,7 @@ public class MessageResource {
 	}
 
 
-	@GET
-	@Path("/context")
-	@Produces(MediaType.APPLICATION_JSON)
-	public Map getContextInfo(@Context UriInfo uriInfo){
 
-		MultivaluedMap path = uriInfo.getPathParameters();
-
-
-
-
-		return path;
-	}
 
 
 }

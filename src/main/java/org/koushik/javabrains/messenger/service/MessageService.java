@@ -3,6 +3,7 @@ package org.koushik.javabrains.messenger.service;
 import java.util.*;
 
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 import org.koushik.javabrains.messenger.database.DatabaseClass;
@@ -17,14 +18,26 @@ public class MessageService {
 	public MessageService() {
 		/*messages.put(1L, new Message(1, "Hello World", "daniel"));
 		messages.put(2L, new Message(2, "Hello Jersey", "daniel2"));*/
-		messageCollection.insertOne(new Message(1,"Hello World","Daniel").toDoc());
+		//messageCollection.insertOne(new Message(1,"Hello World","Daniel").toDoc());
 
 
 	}
 	
 	
-	public List<Message> getAllMessages() {
-		return new ArrayList<Message>(messages.values()); 
+	public List<Document> getAllMessages() {
+		//return new ArrayList<Message>(messages.values());
+        List<Document> messageList = new ArrayList<>();
+        MongoCursor<Document> cursor = messageCollection.find().iterator();
+
+        try{
+            while(cursor.hasNext()){
+                messageList.add(cursor.next());
+            }
+        } finally {
+            cursor.close();
+        }
+
+        return messageList;
 	}
 	
 	public Message getMessage(long id) {
