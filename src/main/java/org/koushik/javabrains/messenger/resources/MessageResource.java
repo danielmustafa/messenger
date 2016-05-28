@@ -24,7 +24,7 @@ public class MessageResource {
 	}*/
 
 	@GET
-	@Produces(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.TEXT_PLAIN)
 	public List<String> getMessages() {
 
 		return messageService.getAllMessages();
