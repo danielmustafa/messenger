@@ -25,13 +25,9 @@ public class MessageResource {
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Message> getMessages() {
-		List<Message> list = new ArrayList<>();
-		Message m1 = new Message(1L,"daniel","test");
-		Message m2 = new Message(2L,"daniel2","test2");
-		list.add(m1);
-		list.add(m2);
-		return list;
+	public List<String> getMessages() {
+
+		return messageService.getAllMessages();
 
 		//return messageService.getAllMessages();
 	}
