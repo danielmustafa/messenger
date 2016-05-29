@@ -15,6 +15,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity("messages")
 public class Message {
 
+
+
 	@Id
 	private ObjectId id;
     private String message;
@@ -28,18 +30,11 @@ public class Message {
     }
     
     public Message(String message, String author) {
-    	this.id = new ObjectId();
     	this.message = message;
     	this.author = author;
     	this.created = new Date();
     }
     
-	public ObjectId getId() {
-		return id;
-	}
-	public void setId(ObjectId id) {
-		this.id = id;
-	}
 	public String getMessage() {
 		return message;
 	}
@@ -58,15 +53,12 @@ public class Message {
 	public void setAuthor(String author) {
 		this.author = author;
 	}
-
-	public Document toDoc(){
-		Document doc = new Document("id",this.getId()).append("message",this.getMessage())
-				.append("author",this.getAuthor()).append("created",this.getCreated());
-
-		return doc;
-
-
-
+	public ObjectId getId() {
+		return id;
 	}
+	public void setId(ObjectId id) {
+		this.id = id;
+	}
+
 	
 }

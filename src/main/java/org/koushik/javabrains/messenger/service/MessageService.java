@@ -2,9 +2,6 @@ package org.koushik.javabrains.messenger.service;
 
 import java.util.*;
 
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoCursor;
-import org.bson.Document;
 import org.bson.types.ObjectId;
 import org.koushik.javabrains.messenger.database.DatabaseClass;
 import org.koushik.javabrains.messenger.model.Message;
