@@ -43,7 +43,7 @@ public class MessengerServiceTests {
         //"_id" : 5749b08581649910e80b45c1
         Query<Message> query = dctest.createQuery(Message.class);
 
-        query.field("_id").equal("5749b08581649910e80b45c1").get();
+        System.out.print(query.field("_id").equal("5749b08581649910e80b45c1").get());
 
     }
 

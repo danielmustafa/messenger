@@ -27,7 +27,7 @@ public class MessageService {
 	
 	public Message getMessage(ObjectId id) {
 
-		return msgQuery.field("_id").equal(id).get();
+		return msgQuery.field("id").equal(id).get();
 
 
 	}
