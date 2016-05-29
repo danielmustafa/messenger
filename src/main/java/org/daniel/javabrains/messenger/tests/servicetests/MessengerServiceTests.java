@@ -8,6 +8,7 @@ import org.koushik.javabrains.messenger.database.DatabaseClass;
 import org.koushik.javabrains.messenger.model.Message;
 import org.koushik.javabrains.messenger.service.MessageService;
 import org.mongodb.morphia.Datastore;
+import org.mongodb.morphia.query.Query;
 
 import java.util.List;
 
@@ -34,7 +35,15 @@ public class MessengerServiceTests {
         Message m1 = new Message("This is another test","daniel2");
         dctest.save(m1);
 
+    }
 
+    @Test
+    public void getMessageTest(){
+
+        //"_id" : 5749b08581649910e80b45c1
+        Query<Message> query = dctest.createQuery(Message.class);
+
+        query.field("_id").equal("5749b08581649910e80b45c1").get();
 
     }
 

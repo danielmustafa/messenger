@@ -37,8 +37,6 @@ public class DatabaseTests {
             Datastore ds = dc.getDatastore("messenger");
 
 
-
-
         }
 
 
