@@ -48,9 +48,13 @@ public class DatabaseClass {
 
 	public Datastore getDatastore(String dbName){
 
-		return morphia.createDatastore(new MongoClient("localhost"),dbName);
+		return morphia.createDatastore(mongoClient,dbName);
 
 
+	}
+
+	public void closeConnection(){
+		mongoClient.close();
 	}
 	
 	

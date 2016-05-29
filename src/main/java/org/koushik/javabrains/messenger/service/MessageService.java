@@ -14,7 +14,6 @@ public class MessageService {
 
     private DatabaseClass dc = new DatabaseClass();
 	private Map<ObjectId, Message> messages = DatabaseClass.getMessages();
-	private MongoCollection<Document> messageCollection;
 	private Datastore messagesDataStore = dc.getDatastore("messenger");
 	public MessageService() {
 
@@ -59,7 +58,9 @@ public class MessageService {
 			message.setCreated(new Date());
 		}
 
-		messages.put(message.getId(), message);
+		//messages.put(message.getId(), message);
+        messagesDataStore.save(message);
+
 		return message;
 	}
 	

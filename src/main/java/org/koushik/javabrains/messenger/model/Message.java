@@ -27,8 +27,8 @@ public class Message {
     	
     }
     
-    public Message(ObjectId id, String message, String author) {
-    	this.id = id;
+    public Message(String message, String author) {
+    	this.id = new ObjectId();
     	this.message = message;
     	this.author = author;
     	this.created = new Date();
