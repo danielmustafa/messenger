@@ -33,7 +33,7 @@ public class MessageService {
 	}
 	
 	public Message addMessage(Message message) {
-		message.setId(new ObjectId());
+		message.setId(new ObjectId().toString());
 
 		if (message.getCreated() == null){
 			message.setCreated(new Date());

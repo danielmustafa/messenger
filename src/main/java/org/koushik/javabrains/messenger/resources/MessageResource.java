@@ -55,7 +55,7 @@ public class MessageResource {
 	@Path("/{messageId}")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Message updateMessage(@PathParam("messageId") ObjectId id, Message message){
+	public Message updateMessage(@PathParam("messageId") String id, Message message){
 		message.setId(id);
 		messageService.updateMessage(message);
 

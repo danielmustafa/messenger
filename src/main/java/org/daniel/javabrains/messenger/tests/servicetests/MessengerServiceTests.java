@@ -1,6 +1,7 @@
 package org.daniel.javabrains.messenger.tests.servicetests;
 
 
+import org.bson.types.ObjectId;
 import org.daniel.javabrains.messenger.tests.modeltests.TestModel;
 import org.junit.Assert;
 import org.junit.Test;
@@ -44,6 +45,17 @@ public class MessengerServiceTests {
         Query<Message> query = dctest.createQuery(Message.class);
 
         System.out.print(query.field("_id").equal("5749b08581649910e80b45c1").get());
+
+    }
+    @Test
+    public void getObjectId(){
+
+        ObjectId oid = new ObjectId();
+
+        System.out.print(oid.toString());
+
+
+
 
     }
 

@@ -1,10 +1,8 @@
 package org.koushik.javabrains.messenger.model;
 
-import org.bson.Document;
 import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Id;
-import org.mongodb.morphia.annotations.PostLoad;
 import org.mongodb.morphia.annotations.Property;
 
 import java.util.Date;
@@ -18,7 +16,7 @@ public class Message {
 
 
 	@Id
-	private ObjectId id;
+	private String id;
     private String message;
     @Property
 	private Date created;
@@ -30,6 +28,7 @@ public class Message {
     }
     
     public Message(String message, String author) {
+		this.id = new ObjectId().toString();
     	this.message = message;
     	this.author = author;
     	this.created = new Date();
@@ -53,10 +52,10 @@ public class Message {
 	public void setAuthor(String author) {
 		this.author = author;
 	}
-	public ObjectId getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(ObjectId id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
