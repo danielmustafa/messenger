@@ -7,6 +7,7 @@ import com.mongodb.client.MongoDatabase;
 import org.junit.Test;
 import org.junit.Assert;
 import org.koushik.javabrains.messenger.database.DatabaseClass;
+import org.koushik.javabrains.messenger.model.Message;
 import org.mongodb.morphia.Datastore;
 
 
@@ -33,8 +34,8 @@ public class DatabaseTests {
     @Test
     public void getDataStore(){
 
-            DatabaseClass dc = new DatabaseClass();
-            Datastore ds = dc.getDatastore("messenger");
+            DatabaseClass dc = new DatabaseClass("messenger", Message.class);
+
 
 
         }
