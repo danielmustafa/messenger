@@ -15,7 +15,7 @@ import java.util.List;
 
 public class MessengerServiceTests {
 
-    DatabaseClass dc = new DatabaseClass();
+    DatabaseClass dc = new DatabaseClass("test",TestModel.class);
     private Datastore dctest = dc.getDatastore("test");
 
     @Test
