@@ -10,7 +10,7 @@ import org.mongodb.morphia.query.Query;
 
 public class MessageService {
 
-    private DatabaseClass dc = new DatabaseClass();
+    private DatabaseClass dc = new DatabaseClass("messenger",Message.class);
 	private Datastore messagesDataStore = dc.getDatastore("messenger");
 	private final Query<Message> msgQuery = messagesDataStore.createQuery(Message.class);
 
@@ -18,10 +18,9 @@ public class MessageService {
 	}
 
 	public List<Message> getAllMessages() {
-
-		final List<Message> messageList = msgQuery.asList();
-
-		return messageList;
+		final List<Message> msgList = (List<Message>) dc.getAll();
+		//final List<Message> messageList = msgQuery.asList();
+		return msgList;
 
 	}
 	
@@ -49,6 +48,8 @@ public class MessageService {
 		if (message.getId() == null) {
 			return null;
 		}
+
+
 
 		return message;
 	}
