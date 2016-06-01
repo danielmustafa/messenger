@@ -38,9 +38,9 @@ public class DatabaseClass {
 		return query.asList();
 	}
 
-	public Object getById(Object input){
+	public Object getById(String input){
 
-		return query.field("id").equal(input.toString()).get();
+		return query.field("id").equal(input).get();
 	}
 
 	public boolean updateById(String id,Class classType,String fieldName, String newValue){

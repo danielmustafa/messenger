@@ -66,7 +66,7 @@ public class MessageResource {
 	@GET
 	@Path("/{messageId}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Message getMessage(@PathParam("messageId") ObjectId id) {
+	public Message getMessage(@PathParam("messageId") String id) {
 		return messageService.getMessage(id);
 	}
 

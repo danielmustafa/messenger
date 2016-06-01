@@ -22,7 +22,7 @@ public class MessageService {
 
 	}
 	
-	public Message getMessage(ObjectId id) {
+	public Message getMessage(String id) {
 
 		//return msgQuery.field("id").equal(id).get();
 		return (Message) dc.getById(id);
