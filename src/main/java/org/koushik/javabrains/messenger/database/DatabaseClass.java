@@ -1,9 +1,12 @@
 package org.koushik.javabrains.messenger.database;
 
 import com.mongodb.MongoClient;
+import com.mongodb.operation.UpdateOperation;
+import org.bson.types.ObjectId;
 import org.mongodb.morphia.Datastore;
 import org.mongodb.morphia.Morphia;
 import org.mongodb.morphia.query.Query;
+import org.mongodb.morphia.query.UpdateOperations;
 
 import java.util.List;
 
@@ -13,6 +16,7 @@ public class DatabaseClass {
 	private MongoClient mongoClient = new MongoClient("localhost");
 	private Datastore datastore;
 	private Query<?> query;
+
 
 	public DatabaseClass(String dbName, Class className){
 	morphia.mapPackage("org.koushik.javabrains.messenger.model");
@@ -28,20 +32,23 @@ public class DatabaseClass {
 
 	}
 
-	public void closeConnection(){
-		mongoClient.close();
-	}
-
 	public List<?> getAll(){
 
-		List list = query.asList();
-		return list;
-
+		return query.asList();
 	}
 
 	public Object getById(Object input){
 
 		return query.field("id").equal(input.toString()).get();
+	}
+
+	public Object updateById(String id,Class classType,String fieldName, String newValue){
+
+		Query<?> query = datastore.createQuery(classType).filter("id =", id);
+		UpdateOperations<Object> update = datastore.createUpdateOperations(classType).set(fieldName,newValue);
+		return datastore.update(query, update);
+
+
 	}
 	
 }
