@@ -11,8 +11,8 @@ import org.mongodb.morphia.query.Query;
 public class MessageService {
 
     private DatabaseClass dc = new DatabaseClass("messenger",Message.class);
-	private Datastore messagesDataStore = dc.getDatastore("messenger");
-	private final Query<Message> msgQuery = messagesDataStore.createQuery(Message.class);
+	//private Datastore messagesDataStore = dc.getDatastore("messenger");
+	//private final Query<Message> msgQuery = messagesDataStore.createQuery(Message.class);
 
 	public MessageService() {
 	}
@@ -26,8 +26,8 @@ public class MessageService {
 	
 	public Message getMessage(ObjectId id) {
 
-		return msgQuery.field("id").equal(id).get();
-
+		//return msgQuery.field("id").equal(id).get();
+		return (Message) dc.getById(id);
 
 	}
 	
@@ -39,7 +39,7 @@ public class MessageService {
 		}
 
 		//messages.put(message.getId(), message);
-        messagesDataStore.save(message);
+        //messagesDataStore.save(message);
 
 		return message;
 	}

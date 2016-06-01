@@ -38,5 +38,10 @@ public class DatabaseClass {
 		return list;
 
 	}
+
+	public Object getById(Object input){
+
+		return query.field("id").equal(input).get();
+	}
 	
 }
