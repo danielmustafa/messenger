@@ -41,7 +41,7 @@ public class DatabaseClass {
 
 	public Object getById(Object input){
 
-		return query.field("id").equal(input).get();
+		return query.field("id").equal(input.toString()).get();
 	}
 	
 }
