@@ -42,12 +42,12 @@ public class MessageService {
 		return message;
 	}
 	
-	public Message updateMessage(Message message) {
+	public boolean updateMessage(Message message) {
 		if (message.getId() == null) {
-			return null;
+			return false;
 		}
 
-		return (Message) dc.updateById(message.getId(),Message.class,"message",message.getMessage());
+		return dc.updateById(message.getId(),Message.class,"message",message.getMessage());
 	}
 	
 	public void removeMessage(ObjectId id) {

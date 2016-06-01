@@ -4,6 +4,8 @@ package org.daniel.javabrains.messenger.tests.databasetests;
 
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoDatabase;
+import org.bson.types.ObjectId;
+import org.daniel.javabrains.messenger.tests.modeltests.TestModel;
 import org.junit.Test;
 import org.junit.Assert;
 import org.koushik.javabrains.messenger.database.DatabaseClass;
@@ -39,6 +41,14 @@ public class DatabaseTests {
 
 
         }
+
+    @Test
+    public void update(){
+        DatabaseClass dc = new DatabaseClass("test", Message.class);
+        dc.updateById("5749b08581649910e80b45c1", TestModel.class,"lastName","Mustachio");
+
+
+    }
 
 
 

@@ -4,7 +4,7 @@
       <root url="jar://$MAVEN_REPOSITORY$/org/mongodb/morphia/morphia/1.1.1/morphia-1.1.1.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="http://mongodb.github.io/morphia/1.0/javadoc/overview-summary.html" />
+      <root url="http://mongodb.github.io/morphia/1.0/javadoc/" />
     </JAVADOC>
     <SOURCES>
       <root url="jar://$MAVEN_REPOSITORY$/org/mongodb/morphia/morphia/1.1.1/morphia-1.1.1-sources.jar!/" />

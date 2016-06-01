@@ -7,6 +7,7 @@ import org.mongodb.morphia.Datastore;
 import org.mongodb.morphia.Morphia;
 import org.mongodb.morphia.query.Query;
 import org.mongodb.morphia.query.UpdateOperations;
+import org.mongodb.morphia.query.UpdateResults;
 
 import java.util.List;
 
@@ -42,11 +43,13 @@ public class DatabaseClass {
 		return query.field("id").equal(input.toString()).get();
 	}
 
-	public Object updateById(String id,Class classType,String fieldName, String newValue){
+	public boolean updateById(String id,Class classType,String fieldName, String newValue){
 
-		Query<?> query = datastore.createQuery(classType).filter("id =", id);
+		Query<?> query = datastore.createQuery(classType).filter("id =",new ObjectId(id));
 		UpdateOperations<Object> update = datastore.createUpdateOperations(classType).set(fieldName,newValue);
-		return datastore.update(query, update);
+		UpdateResults results = datastore.update(query,update);
+
+		return results.getUpdatedExisting();
 
 
 	}
