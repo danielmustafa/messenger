@@ -45,7 +45,7 @@ public class DatabaseClass {
 
 	public boolean updateById(String id,Class classType,String fieldName, String newValue){
 
-		Query<?> query = datastore.createQuery(classType).filter("id =",new ObjectId(id));
+		final Query<?> query = datastore.createQuery(classType).filter("id =",new ObjectId(id));
 		UpdateOperations<Object> update = datastore.createUpdateOperations(classType).set(fieldName,newValue);
 		UpdateResults results = datastore.update(query,update);
 
@@ -53,5 +53,24 @@ public class DatabaseClass {
 
 
 	}
+
+	public void insert(Object input){
+
+		try{
+			datastore.save(input);
+		}
+		finally{
+
+		}
+	}
+	public void removeById(String id, Class classType){
+
+		final Query<?> query = datastore.createQuery(classType).filter("id =", new ObjectId(id));
+		datastore.delete(query);
+
+	}
+
+
+
 	
 }

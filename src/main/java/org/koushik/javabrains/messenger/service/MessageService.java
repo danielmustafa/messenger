@@ -16,9 +16,9 @@ public class MessageService {
 	}
 
 	public List<Message> getAllMessages() {
-		final List<Message> msgList = (List<Message>) dc.getAll();
+		//final List<Message> msgList = (List<Message>) dc.getAll();
 		//final List<Message> messageList = msgQuery.asList();
-		return msgList;
+		return (List<Message>) dc.getAll();
 
 	}
 	
@@ -38,7 +38,7 @@ public class MessageService {
 
 		//messages.put(message.getId(), message);
         //messagesDataStore.save(message);
-
+		dc.insert(message);
 		return message;
 	}
 	
@@ -50,7 +50,9 @@ public class MessageService {
 		return dc.updateById(message.getId(),Message.class,"message",message.getMessage());
 	}
 	
-	public void removeMessage(ObjectId id) {
+	public void removeMessage(String id) {
+
+		dc.removeById(id,Message.class);
 
 	}
 	

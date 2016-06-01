@@ -46,7 +46,7 @@ public class MessageResource {
 	@DELETE
 	@Path("/{messageId}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public void deleteMessage(@PathParam("messageId") ObjectId id){
+	public void deleteMessage(@PathParam("messageId") String id){
 		messageService.removeMessage(id);
 
 	}
@@ -55,11 +55,11 @@ public class MessageResource {
 	@Path("/{messageId}")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Message updateMessage(@PathParam("messageId") String id, Message message){
+	public boolean updateMessage(@PathParam("messageId") String id, Message message){
 		message.setId(id);
-		messageService.updateMessage(message);
 
-		return message;
+
+		return messageService.updateMessage(message);
 
 	}
 
